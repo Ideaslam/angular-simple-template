@@ -2,15 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import {  PersonalModule } from './pages/personal/personal.module';
+import {  OperationsModule } from './pages/operations/operations.module';
+ 
 import { AppComponent } from './app.component';
+import { CityComponent } from './pages/city/city.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CityComponent
+    
+ 
+ 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PersonalModule,
+    OperationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

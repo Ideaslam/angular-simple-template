@@ -1,0 +1,23 @@
+ <h1>Cities</h1>
+
+ <button (click)="showForm=true">AddCity</button>
+
+ <div [hidden]="showForm">
+    <div *ngFor="let c of cities" >{{c.Name}}
+     <button (click)="Edit(c.Id)">Edit</button>
+     <button (click)="this.Delete(c.Id)" >Delete</button>
+    </div>
+    
+ </div>
+
+ 
+
+
+ <div [hidden]="!showForm">
+   
+    <form [formGroup]="cityForm">
+     <label >City</label>
+    <input type="text" placeholder="City Name" formControlName="Name" >
+    <input  type="submit" (click)="Submit()">
+   </form>
+ </div>
