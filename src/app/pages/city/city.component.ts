@@ -17,6 +17,16 @@ export class CityComponent implements OnInit {
     this.initForm();
     this.Get();
   }
+ 
+
+rows :any[]= [
+  {id:1 ,name :"islam" ,status:false },
+  {id:2 ,name :"faiez" ,status:true},
+  {id:3 ,name :"mohammed" ,status:false}
+] ; 
+
+
+values :any [] =[];
 
  city :City; 
  cities:City[] ;
@@ -33,6 +43,29 @@ export class CityComponent implements OnInit {
 
     
    }
+
+
+   GetcheckedStatus(data){
+     console.log(data); 
+     var v =  document.getElementById(data.id) ;
+    console.log(v.getAttribute('id'));
+
+   }
+
+
+   GetAllchecks(){
+    this.values=[]; 
+
+   for (let i=0 ;i < this.rows.length ; i++) {
+        var v =  document.getElementById('ch-'+this.rows[i].id) ;
+        var id = this.rows[i].id ;
+        var value =v.getAttribute('name') ; 
+
+        this.values.push({id:id ,value:value});
+
+   }
+      console.log(this.values);
+  }
 
    Edit(id){
     this.showForm=true;

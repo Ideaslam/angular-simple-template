@@ -12,6 +12,13 @@
 
  
 
+   
+   <app-rows *ngFor="let row of  rows"  title='{{row.name}}' status='{{row.status}}' 
+    id="ch-{{row.id}}" (onChecked) ="GetAllchecks()"   > </app-rows>
+
+
+
+
 
  <div [hidden]="!showForm">
    

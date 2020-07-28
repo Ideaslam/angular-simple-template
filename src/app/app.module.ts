@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { CityComponent } from './pages/city/city.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RowsComponent } from './pages/rows/rows.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityComponent
+    CityComponent,
+    RowsComponent
     
  
  
