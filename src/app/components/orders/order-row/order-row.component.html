@@ -1,0 +1,30 @@
+ 
+    <div class="card-header">
+      <div class="accordion-heading"><a class="d-flex flex-wrap align-items-center justify-content-between pr-4"
+        attr.href="#order-{{order.id}}" role="button" data-toggle="collapse" aria-expanded="true" attr.aria-controls="order-{{order.id}}">
+          <div class="font-size-sm font-weight-medium text-nowrap my-1 mr-2"><i class="fe-hash font-size-base mr-1"></i>
+            <span class="d-inline-block align-middle">{{order.id}}</span></div>
+          <div class="text-nowrap text-body font-size-sm font-weight-normal my-1 mr-2">
+            <i class="fe-clock text-muted mr-1"></i>{{order.created_at}}</div>
+          <div class="bg-faded-info text-info font-size-xs font-weight-medium py-1 px-3 rounded-sm my-1 mr-2">{{order.financial_status}}</div>
+          <div class="text-body font-size-sm font-weight-medium my-1">{{order.total_price}}</div></a></div>
+    </div>
+
+    
+    <div class="collapse show" id="order-{{order.id}}" data-parent="#orders-accordion">
+      <div class="card-body pt-4 border-top bg-secondary">
+
+        <!-- Item-->
+         <app-item  *ngFor="let item of order.line_items" [item]="item"></app-item>
+      
+       
+        <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 border-top">
+          <div class="font-size-sm my-2 mr-2"><span class="text-muted mr-1">Subtotal:</span><span class="font-weight-medium">{{order.total_line_items_price_set.shop_money.amount}}</span></div>
+          <div class="font-size-sm my-2 mr-2"><span class="text-muted mr-1">Shipping:</span><span class="font-weight-medium">{{order.total_shipping_price_set.shop_money.amount}}</span></div>
+          <div class="font-size-sm my-2 mr-2"><span class="text-muted mr-1">Tax:</span><span class="font-weight-medium">{{order.total_tax_set.shop_money.amount}}</span></div>
+          <div class="font-size-sm my-2"><span class="text-muted mr-1">Total:</span><span class="font-weight-medium">{{order.total_price_set.shop_money.amount}}</span></div>
+        </div>
+      </div>
+    </div>
+  
+

@@ -1,0 +1,10 @@
+ 
+
+<div class="container">
+    <!-- <app-item *ngFor="let product of products" [product]="product"></app-item> -->
+    <div class="row" *ngFor="let p  of products" [product]="product">
+        <div class="col-3">{{p.id}}</div>
+        <div class="col-3">{{p.title}}</div>
+        <app-item ></app-item>
+    </div>
+</div>

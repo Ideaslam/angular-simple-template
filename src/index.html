@@ -2,46 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>TemplateApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Stylesheets -->
+  <title>Around | Single Post Left Sidebar</title>
+  <base href="/">  <head>
 
- 
-<meta name="description" content="Pancaro Personal Resume & Cv Template">
-<meta name="keywords" content="business, personal, portfolio">
- 
-
- 
-<link rel="stylesheet" href="./assets/css/bootstrap.css"/>
-<link rel="stylesheet" href="./assets/css/reset.css"/>
-<link rel="stylesheet" href="./assets/css/style.css"/>
-<link rel="stylesheet" href="./assets/css/magnific-popup.css"/> 
-<link rel="stylesheet" href="./assets/css/jquery.mCustomScrollbar.css"/> 
-<link rel="stylesheet" href="./assets/css/owl.theme.css"/> 
-<link rel="stylesheet" href="./assets/css/owl.carousel.css"/> 
-
-
- 
- 
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Around - Multipurpose Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, consulting, coworking space, services, creative agency, dashboard, e-commerce, mobile app showcase, multipurpose, product landing, shop, software, ui kit, web studio, landing, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/sources/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/sources/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/sources/favicon-16x16.png">
+    <link rel="manifest" href="./assets/sources/site.webmanifest">
+    <link rel="mask-icon" color="#5bbad5" href="./assets/sources/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#766df4">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Page loading styles-->
+    <style>
+      .cs-page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .cs-page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .cs-page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .cs-page-loading.active > .cs-page-loading-inner {
+        opacity: 1;
+      }
+      .cs-page-loading-inner > span {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #737491;
+      }
+      .cs-page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #766df4;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.cs-page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="./assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="./assets/vendor/tiny-slider/dist/tiny-slider.css"/>
+    <link rel="stylesheet" media="screen" href="./assets/vendor/lightgallery.js/dist/css/lightgallery.min.css"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="./assets/css/theme.min.css">
+  </head>
 </head>
-<body>
-  <app-root></app-root>
+<body class="cs-is-sidebar">
+     <!-- Page loading spinner-->
+     <div class="cs-page-loading active">
+      <div class="cs-page-loading-inner">
+        <div class="cs-page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+     
+        <app-root></app-root>
+     
 
 
   <!-- Javascripts -->
-<script src="./assets/js/jquery-2.1.4.min.js"></script><!-- jQuery library -->
-<script src="./assets/js/bootstrap.min.js"></script> 
-<script src="./assets/js/jquery.ascensor.js"></script>
-<script src="./assets/js/isotope.pkgd.min.js"></script>
-<script src="./assets/js/jquery.magnific-popup.min.js"></script>
-<script src="./assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="./assets/js/owl.carousel.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj3cQNQ5dhNXHB-TkI4EbsF62nzBR1Wug"></script>
-<script src="./assets/js/styleswitcher.js"></script> 
-<script src="./assets/js/main.js"></script>
+  <script src="./assets/vendor/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script src="./assets/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="./assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="./assets/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
+    <script src="./assets/vendor/lightgallery.js/dist/js/lightgallery.min.js"></script>
+    <script src="./assets/vendor/lg-fullscreen.js/dist/lg-fullscreen.min.js"></script>
+    <script src="./assets/vendor/lg-zoom.js/dist/lg-zoom.min.js"></script>
+    <script src="./assets/vendor/lg-video.js/dist/lg-video.min.js"></script>
  
 </body>
 </html>

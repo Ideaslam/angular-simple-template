@@ -2,33 +2,47 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import {  PersonalModule } from './pages/personal/personal.module';
-import {  OperationsModule } from './pages/operations/operations.module';
+
+
  
 import { AppComponent } from './app.component';
-import { CityComponent } from './pages/city/city.component';
+
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RowsComponent } from './pages/rows/rows.component';
+import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
+
+import { HeadComponent } from './layout/head/head.component';
+import { LeftPanelComponent } from './layout/left-panel/left-panel.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { SideBarComponent } from './layout/side-bar/side-bar.component';
+
+
+// Page Modules 
+import {  OrdersPageModule} from './pages/orders/orders-page.module';
+
+
+// Components
+import {   ComponentsModule } from './components/components.module';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CityComponent,
-    RowsComponent
-    
- 
+    HeadComponent,
+    LeftPanelComponent,
+    FooterComponent,
+    SideBarComponent,
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PersonalModule,
-    OperationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule ,
+    OrdersPageModule,
+    
     
   ],
   providers: [],

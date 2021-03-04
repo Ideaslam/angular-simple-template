@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError  } from 'rxjs';
-import { map ,catchError } from 'rxjs/operators';
+import { map ,catchError, timeout } from 'rxjs/operators';
 
 import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse } from "@angular/common/http";
 
 import { ResponseState, SearchResult, ValidationError, ExecutionResponse } from '../models/base-model';
+import { environment } from 'src/environments/environment';
+import { param } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
   ApiUrl: string;
+  ThirdParty :string; 
   constructor(private httpClient: HttpClient) {
-
-
-    this.ApiUrl = 'http://localhost:5000/api/';
+     this.ApiUrl= environment.api.baseUrl; 
   }
 
   //   public getSettings(fileName: string): Observable<any> {
@@ -39,7 +40,10 @@ export class BaseService {
   // }
 
 
-
+  ChangeThirdParty(base){
+    this.ThirdParty= base == null ? "api" : base;
+    this.ApiUrl =environment[this.ThirdParty].baseUrl ; 
+  }
 
   getHeaders() {
     return {
@@ -73,17 +77,13 @@ export class BaseService {
   // }
 
 
-  getQuery() {
-    return {
-      params: new HttpParams()
-        .set('lang', 'ar')
-    }
-  }
+  
 
-
-  Get(endPoint: string, body: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.ApiUrl}${endPoint}`, body, this.getQuery())
+  Get(endPoint: string, params?: any): Observable<any> {
+     console.log(this.ApiUrl ,endPoint) ; 
+    return this.httpClient.get<any>(`${this.ApiUrl}${endPoint}`, {params:params})
     .pipe(
+     
       map(res=> res),
       catchError(this.handleError)
     );
@@ -91,8 +91,8 @@ export class BaseService {
   }
 
 
-  GetOne(endPoint: string, body: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.ApiUrl}${endPoint}`, body, this.getQuery())
+  GetOne(endPoint: string, params: any): Observable<any> {
+    return this.httpClient.get<any>(`${this.ApiUrl}${endPoint}`, {params:params})
     .pipe(
       map(res=>res),
       catchError(this.handleError)
@@ -100,17 +100,18 @@ export class BaseService {
 
   }
 
-
-  Delete(endPoint: string, body: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.ApiUrl}${endPoint}`, body, this.getQuery());
+ 
+ 
+  Delete(endPoint: string, params: any): Observable<any> {
+    return this.httpClient.delete<any>(`${this.ApiUrl}${endPoint}`,   {params:params});
   }
 
   Create(endPoint: string, body: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.ApiUrl}${endPoint}`, body, this.getQuery());
+    return this.httpClient.post<any>(`${this.ApiUrl}${endPoint}`,body);
   }
 
-  Update(endPoint: string, body: any): Observable<any> {
-    return this.httpClient.post<any>(`${this.ApiUrl}${endPoint}`, body, this.getQuery());
+  Update(endPoint: string, params: any): Observable<any> {
+    return this.httpClient.put<any>(`${this.ApiUrl}${endPoint}`, {params:params});
   }
 
 

@@ -1,31 +1,36 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {CityComponent} from '../app/pages/city/city.component';
+
+import { NgModule }             from '@angular/core';
+
+import { RouterModule, Routes } from '@angular/router';
+
  
 
+// import { AuthGuard }                from './helpers/canActivateAuthGuard';
+// import { LoginComponent }   from './components/login/login.component';
+// import { LogoutComponent }   from './components/login/logout.component';
+// import { DashboardComponent }   from './components/dashboard/dashboard.component';
+// import { UsersComponent }      from './components/users/users.component';
 
 const routes: Routes = [
-  
-  {
-    path:'personal',
-    loadChildren:'./pages/personal/personal.module#PersonalModule'
-  },
-  {
-    path:'operations',
-    loadChildren:'./pages/operations/operations.module#OperationsModule'
-  }
-  ,
-  {
-    path:'city',
-    component:CityComponent
-  }
-    
-    
+
+   //  { path: 'order', redirectTo: '/dashboard', pathMatch: 'full', canActivate: [AuthGuard] },
+
+    { path: 'orders', loadChildren: "./pages/orders/orders-page.module#OrdersModule"},
+
+  // { path: 'logout', component: LogoutComponent},
+
+  // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+
+  // { path: 'users', component: UsersComponent,canActivate: [AuthGuard] }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule  ]
+
+  imports: [ RouterModule.forRoot(routes) ],
+
+  exports: [ RouterModule   ]
+
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {}
