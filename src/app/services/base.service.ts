@@ -5,7 +5,7 @@ import { map ,catchError } from 'rxjs/operators';
 import { HttpHeaders, HttpClient, HttpParams, HttpErrorResponse } from "@angular/common/http";
 
 import { ResponseState, SearchResult, ValidationError, ExecutionResponse } from '../models/base-model';
-
+import {environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,7 @@ export class BaseService {
   constructor(private httpClient: HttpClient) {
 
 
-    this.ApiUrl = 'http://localhost:5000/api/';
+    this.ApiUrl = environment.baseUrl;
   }
 
   //   public getSettings(fileName: string): Observable<any> {
